@@ -9,5 +9,4 @@ public class AvootaInventoryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AvootaInventoryApplication.class, args);
 	}
-
 }
