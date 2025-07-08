@@ -1,4 +1,4 @@
-package com.example.inventryProject.dto;
+package com.example.inventryProject.hoteld.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

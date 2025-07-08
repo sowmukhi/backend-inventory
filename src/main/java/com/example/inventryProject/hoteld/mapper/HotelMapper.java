@@ -1,7 +1,7 @@
-package com.example.inventryProject.mapper;
+package com.example.inventryProject.hoteld.mapper;
 
-import com.example.inventryProject.dto.HotelDTO;
-import com.example.inventryProject.entity.Hotel;
+import com.example.inventryProject.hoteld.dto.HotelDTO;
+import com.example.inventryProject.hoteld.entity.Hotel;
 
 public class HotelMapper {
 

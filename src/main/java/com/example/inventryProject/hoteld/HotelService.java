@@ -1,10 +1,10 @@
-package com.example.inventryProject.service;
+package com.example.inventryProject.hoteld;
 
-import com.example.inventryProject.dto.HotelDTO;
-import com.example.inventryProject.entity.Hotel;
-import com.example.inventryProject.excepation.HotelNotFoundException;
-import com.example.inventryProject.mapper.HotelMapper;
-import com.example.inventryProject.repository.HotelRepository;
+import com.example.inventryProject.hoteld.dto.HotelDTO;
+import com.example.inventryProject.hoteld.entity.Hotel;
+import com.example.inventryProject.hoteld.excepation.HotelNotFoundException;
+import com.example.inventryProject.hoteld.mapper.HotelMapper;
+import com.example.inventryProject.hoteld.repository.HotelRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

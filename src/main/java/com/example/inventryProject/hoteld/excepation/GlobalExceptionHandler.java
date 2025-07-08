@@ -1,4 +1,4 @@
-package com.example.inventryProject.excepation;
+package com.example.inventryProject.hoteld.excepation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

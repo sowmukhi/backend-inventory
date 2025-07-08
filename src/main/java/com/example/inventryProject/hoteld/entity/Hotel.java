@@ -1,4 +1,4 @@
-package com.example.inventryProject.entity;
+package com.example.inventryProject.hoteld.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "property_details",schema = "property")
 public class Hotel {
     @Id
+
     @Column(name = "hotel_id")
     private Long hotelId;
 

@@ -1,10 +1,9 @@
-package com.example.inventryProject.controller;
+package com.example.inventryProject.hoteld.controller;
 
-import com.example.inventryProject.dto.HotelDTO;
-import com.example.inventryProject.entity.Hotel;
-import com.example.inventryProject.service.HotelService;
+import com.example.inventryProject.hoteld.dto.HotelDTO;
+import com.example.inventryProject.hoteld.entity.Hotel;
+import com.example.inventryProject.hoteld.HotelService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
