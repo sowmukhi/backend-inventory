@@ -1,7 +1,7 @@
 package com.neoteric.avoota_inventory.create_room.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.neoteric.avoota_inventory.add_hotel.entity.HotelEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -43,6 +43,6 @@ public class RoomEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnoreProperties("rooms") // avoids loop
     private HotelEntity hotel;
 }

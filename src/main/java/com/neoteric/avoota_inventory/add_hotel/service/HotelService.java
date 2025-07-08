@@ -1,7 +1,7 @@
 package com.neoteric.avoota_inventory.add_hotel.service;
 
 import com.neoteric.avoota_inventory.add_hotel.entity.HotelEntity;
-import com.neoteric.avoota_inventory.add_hotel.exception.HotelNotFoundException;
+import com.neoteric.avoota_inventory.exception.HotelNotFoundException;
 import com.neoteric.avoota_inventory.add_hotel.mapper.HotelMapper;
 import com.neoteric.avoota_inventory.add_hotel.model.HotelDTO;
 import com.neoteric.avoota_inventory.add_hotel.repository.HotelRepository;
@@ -80,13 +80,22 @@ public class HotelService {
         }
     }
 
-    public List<HotelEntity> getAllHotels() {
+    public List<HotelDTO> getAllHotels() {
         try {
-            log.info("Fetching all hotels");
-            return hotelRepository.findAll();
+            log.info("Fetching all hotels from the database");
+
+            List<HotelDTO> hotelDTOList = hotelRepository.findAll()
+                    .stream()
+                    .map(hotelMapper::toDto)
+                    .toList();
+
+            log.info("Successfully fetched {} hotels", hotelDTOList.size());
+            return hotelDTOList;
+
         } catch (Exception ex) {
             log.error("Exception occurred while fetching all hotels", ex);
             throw new RuntimeException("Error fetching all hotels", ex);
         }
     }
+
 }

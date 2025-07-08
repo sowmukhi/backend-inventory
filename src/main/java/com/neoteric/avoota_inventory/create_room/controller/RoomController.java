@@ -21,13 +21,14 @@ public class RoomController {
     @PostMapping("/save")
     public ResponseEntity<String> createRoom(@RequestBody RoomDTO dto) {
         log.info("API: Create Room");
-        roomService.createRoom(dto);
+        roomService.saveRoomDetails(dto);
         return new ResponseEntity<>("Room saved successfully", HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public RoomDTO getRoom(@PathVariable Long id) {
-        return roomService.getRoom(id);
+    public ResponseEntity<RoomDTO> getRoom(@PathVariable Long id) {
+        log.info(" GET Request for Room ID: {}", id);
+        return roomService.getRoomDetailsById(id);
     }
 
     @GetMapping("/hotel/{hotelId}")

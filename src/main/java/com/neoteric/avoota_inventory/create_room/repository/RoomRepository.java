@@ -2,8 +2,6 @@ package com.neoteric.avoota_inventory.create_room.repository;
 
 import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
