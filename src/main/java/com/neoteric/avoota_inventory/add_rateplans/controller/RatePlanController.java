@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/api/rateplans")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin(origins = "*")
 public class RatePlanController {
     private final RatePlanService ratePlanService;
 
