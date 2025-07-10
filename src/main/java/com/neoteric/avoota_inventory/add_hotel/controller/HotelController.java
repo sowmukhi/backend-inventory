@@ -22,20 +22,20 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/saveHotel")
     public ResponseEntity<String> saveHotel(@Valid @RequestBody HotelDTO hotelDTO) {
         log.info("POST /api/hotels - saving hotel");
         hotelService.saveHotel(hotelDTO); // call the service method
         return ResponseEntity.ok("Hotel saved successfully");
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<HotelDTO> getHotel(@PathVariable Long id) {
         log.info("GET /api/hotels/{} - fetching hotel", id);
         return ResponseEntity.ok(hotelService.getHotel(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<HotelDTO> updateHotel(@PathVariable Long id, @RequestBody HotelDTO hotelDTO) {
         log.info("PUT /api/hotels/{} - updating hotel", id);
         return ResponseEntity.ok(hotelService.updateHotel(id, hotelDTO));

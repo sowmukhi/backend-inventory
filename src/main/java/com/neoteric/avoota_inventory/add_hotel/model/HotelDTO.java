@@ -18,4 +18,6 @@ public class HotelDTO {
     @NotBlank(message = "Hotel name is required")
     private String hotelName;
     private String hotelAddress;
+    private List<RoomDTO> rooms;
+
 }

@@ -30,7 +30,7 @@ public class RatePlanController {
         return ResponseEntity.ok(ratePlanService.getRatePlansByRoomId(roomId));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<RatePlanDTO> updateRatePlan(@PathVariable Long id, @RequestBody RatePlanDTO dto) {
         log.info("PUT /api/rateplans/{} - Updating rate plan", id);
         return ResponseEntity.ok(ratePlanService.updateRatePlan(id, dto));

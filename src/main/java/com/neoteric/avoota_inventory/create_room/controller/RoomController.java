@@ -18,25 +18,25 @@ import java.util.List;
 public class RoomController {
     private final RoomService roomService;
 
-    @PostMapping("/save")
+    @PostMapping("/saveRoom")
     public ResponseEntity<String> createRoom(@RequestBody RoomDTO dto) {
         log.info("API: Create Room");
         roomService.saveRoomDetails(dto);
         return new ResponseEntity<>("Room saved successfully", HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getByRoom/{id}")
     public ResponseEntity<RoomDTO> getRoom(@PathVariable Long id) {
         log.info(" GET Request for Room ID: {}", id);
         return roomService.getRoomDetailsById(id);
     }
 
-    @GetMapping("/hotel/{hotelId}")
+    @GetMapping("/hetByHotel/{hotelId}")
     public List<RoomDTO> getRoomsByHotel(@PathVariable Long hotelId) {
         return roomService.getRoomsByHotel(hotelId);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public RoomDTO updateRoom(@PathVariable Long id, @RequestBody RoomDTO dto) {
         return roomService.updateRoom(id, dto);
     }

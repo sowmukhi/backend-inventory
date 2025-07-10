@@ -9,6 +9,7 @@ import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
 import com.neoteric.avoota_inventory.create_room.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class RatePlanService {
     private final RatePlanRepository ratePlanRepository;
     private final RoomRepository roomRepository;
+    private final RatePlanMapper ratePlanMapper;
 
     public ResponseEntity<String> addRatePlan(RatePlanDTO dto) {
         log.info("Attempting to add new rate plan: {}", dto);
@@ -44,7 +46,7 @@ public class RatePlanService {
                         .body("Rate plan with this name already exists for the room");
             }
 
-            RatePlanEntity ratePlan = RatePlanMapper.toEntity(dto, room);
+            RatePlanEntity ratePlan = ratePlanMapper.toEntity(dto, room);
             RatePlanEntity saved = ratePlanRepository.save(ratePlan);
 
             log.info("Rate plan '{}' saved successfully with ID: {}", saved.getRatePlanName(), saved.getId());
@@ -67,7 +69,7 @@ public class RatePlanService {
         log.info("Fetching rate plans for roomId: {}", roomId);
         try {
             List<RatePlanDTO> ratePlans = ratePlanRepository.findByRoomRoomId(roomId).stream()
-                    .map(RatePlanMapper::toDTO)
+                    .map(ratePlanMapper::toDTO)
                     .collect(Collectors.toList());
             log.info("Found {} rate plan(s) for roomId {}", ratePlans.size(), roomId);
             return ratePlans;
@@ -95,7 +97,7 @@ public class RatePlanService {
             log.info("Updated rate plan ID {} with new name: '{}' and meal plan: '{}'",
                     id, dto.getRatePlanName(), dto.getMealPlan());
 
-            return RatePlanMapper.toDTO(updated);
+            return ratePlanMapper.toDTO(updated);
 
         } catch (IllegalArgumentException ex) {
             log.error("Validation failed while updating rate plan: {}", ex.getMessage());
