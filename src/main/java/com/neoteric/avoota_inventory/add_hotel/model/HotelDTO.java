@@ -1,11 +1,11 @@
 package com.neoteric.avoota_inventory.add_hotel.model;
 
 import com.neoteric.avoota_inventory.create_room.model.RoomDTO;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 

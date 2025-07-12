@@ -35,4 +35,12 @@ public class RatePlanPriceController {
         service.updateRatePlanPrices(dtos);
         return ResponseEntity.ok("Rates updated successfully.");
     }
+
+//    @PostMapping("/rates/save")
+//    public ResponseEntity<String> saveRates(@RequestBody List<RatePlanPriceDTO> dtos) {
+//        log.info("Received POST request to save new rate plan prices. Total records: {}", dtos.size());
+//        service.saveRatePlanPrices(dtos);
+//        return ResponseEntity.ok("Rates saved successfully.");
+//    }
+
 }

@@ -20,6 +20,35 @@ public class RatePlanPriceService {
     private final RatePlanPriceRepository ratePlanPriceRepository;
     private final RoomsAvailabilityRepository availabilityRepository;
 
+//    public void saveRatePlanPrices(List<RatePlanPriceDTO> dtos) {
+//        log.info("Saving {} new rate plan price entries", dtos.size());
+//        try {
+//            List<RatePlanPriceEntity> entities = new ArrayList<>();
+//
+//            for (RatePlanPriceDTO dto : dtos) {
+//                RatePlanPriceEntity entity = RatePlanPriceEntity.builder()
+//                        .hotelId(dto.getHotelId())
+//                        .roomId(dto.getRoomId())
+//                        .ratePlanId(dto.getRatePlanId())
+//                        .date(dto.getDate())
+//                        .pricePerOne(dto.getPricePerOne())
+//                        .pricePerTwo(dto.getPricePerTwo())
+//                        .build();
+//
+//                log.debug("Prepared entity for save: {}", entity);
+//                entities.add(entity);
+//            }
+//
+//            ratePlanPriceRepository.saveAll(entities);
+//            log.info("Successfully saved {} rate plan price entries", entities.size());
+//
+//        } catch (Exception e) {
+//            log.error("Error while saving rate plan prices: {}", e.getMessage(), e);
+//            throw new RuntimeException("Failed to save rate plan prices. Please try again later.");
+//        }
+//    }
+
+
     public List<RatePlanPriceDTO> getRatesByHotel(Long hotelId, LocalDate from, LocalDate to) {
         log.info("Fetching rate plan prices for hotelId={}, fromDate={}, toDate={}", hotelId, from, to);
         try {
@@ -58,6 +87,8 @@ public class RatePlanPriceService {
     public void updateRatePlanPrices(List<RatePlanPriceDTO> dtos) {
         log.info("Updating rate plan prices for {} entries", dtos.size());
         try {
+            List<RatePlanPriceEntity> entitiesToSave = new ArrayList<>();
+
             for (RatePlanPriceDTO dto : dtos) {
                 RatePlanPriceEntity entity = ratePlanPriceRepository
                         .findByHotelIdAndRoomIdAndRatePlanIdAndDate(
@@ -86,12 +117,16 @@ public class RatePlanPriceService {
                             .build();
                 }
 
-                ratePlanPriceRepository.save(entity);
+                entitiesToSave.add(entity);
             }
-            log.info("Rate plan prices updated successfully.");
+
+            ratePlanPriceRepository.saveAll(entitiesToSave);
+            log.info("Successfully saved or updated {} rate plan prices", entitiesToSave.size());
+
         } catch (Exception e) {
             log.error("Error updating rate plan prices: {}", e.getMessage(), e);
             throw new RuntimeException("Unable to update rate plan prices. Please try again later.");
         }
     }
+
 }

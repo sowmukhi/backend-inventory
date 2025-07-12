@@ -1,13 +1,12 @@
 package com.neoteric.avoota_inventory.add_hotel.service;
 
 import com.neoteric.avoota_inventory.add_hotel.entity.HotelEntity;
-import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
-import com.neoteric.avoota_inventory.create_room.mapper.RoomMapper;
-import com.neoteric.avoota_inventory.create_room.repository.RoomRepository;
-import com.neoteric.avoota_inventory.exception.HotelNotFoundException;
 import com.neoteric.avoota_inventory.add_hotel.mapper.HotelMapper;
 import com.neoteric.avoota_inventory.add_hotel.model.HotelDTO;
 import com.neoteric.avoota_inventory.add_hotel.repository.HotelRepository;
+import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
+import com.neoteric.avoota_inventory.create_room.repository.RoomRepository;
+import com.neoteric.avoota_inventory.exception.HotelNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +18,11 @@ public class HotelService {
     private final HotelRepository hotelRepository;
     private final HotelMapper hotelMapper;
     private final RoomRepository roomRepository;
-    private final RoomMapper roomMapper;
 
-    public HotelService(HotelRepository hotelRepository, HotelMapper hotelMapper, RoomRepository roomRepository, RoomMapper roomMapper) {
+    public HotelService(HotelRepository hotelRepository, HotelMapper hotelMapper, RoomRepository roomRepository) {
         this.hotelRepository = hotelRepository;
         this.hotelMapper = hotelMapper;
         this.roomRepository = roomRepository;
-        this.roomMapper = roomMapper;
     }
 
     public HotelDTO saveHotel(HotelDTO dto) {

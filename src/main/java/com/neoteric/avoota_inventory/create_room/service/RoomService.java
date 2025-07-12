@@ -1,13 +1,13 @@
 package com.neoteric.avoota_inventory.create_room.service;
 
 import com.neoteric.avoota_inventory.add_hotel.entity.HotelEntity;
-import com.neoteric.avoota_inventory.exception.HotelNotFoundException;
 import com.neoteric.avoota_inventory.add_hotel.repository.HotelRepository;
 import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
-import com.neoteric.avoota_inventory.exception.RoomNotFoundException;
 import com.neoteric.avoota_inventory.create_room.mapper.RoomMapper;
 import com.neoteric.avoota_inventory.create_room.model.RoomDTO;
 import com.neoteric.avoota_inventory.create_room.repository.RoomRepository;
+import com.neoteric.avoota_inventory.exception.HotelNotFoundException;
+import com.neoteric.avoota_inventory.exception.RoomNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

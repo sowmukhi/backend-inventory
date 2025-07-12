@@ -14,9 +14,9 @@ import java.time.LocalDate;
 public class RatePlanPriceDTO {
     private Long hotelId;
     private Long roomId;
-//    private String roomName;
+    //    private String roomName;
     private Long ratePlanId;
-//    private String ratePlanName;
+    //    private String ratePlanName;
     private LocalDate date;
     private int availableCount;
     private Double pricePerOne;

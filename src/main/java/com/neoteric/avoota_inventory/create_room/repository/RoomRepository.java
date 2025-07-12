@@ -8,11 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RoomRepository extends JpaRepository<RoomEntity, Long> {
-    List<RoomEntity> findByHotelHotelId(Long hotelId);
 
-//    @Query("SELECT r FROM RoomEntity r JOIN FETCH r.hotel WHERE r.hotel.hotelId = :hotelId")
-//    List<RoomEntity> findAllByHotelIdWithHotel(@Param("hotelId") Long hotelId);
-// Custom query to fetch rooms with rate plans eagerly
+    List<RoomEntity> findByHotelHotelId(Long hotelId);
 
     @Query("SELECT r FROM RoomEntity r LEFT JOIN FETCH r.ratePlanEntityList WHERE r.hotel.hotelId = :hotelId")
     List<RoomEntity> findByHotel_HotelIdWithRatePlans(@Param("hotelId") Long hotelId);

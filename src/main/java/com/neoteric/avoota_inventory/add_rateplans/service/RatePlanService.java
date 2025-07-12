@@ -1,15 +1,14 @@
 package com.neoteric.avoota_inventory.add_rateplans.service;
 
 import com.neoteric.avoota_inventory.add_rateplans.entity.RatePlanEntity;
-import com.neoteric.avoota_inventory.exception.ResourceNotFoundException;
 import com.neoteric.avoota_inventory.add_rateplans.mapper.RatePlanMapper;
 import com.neoteric.avoota_inventory.add_rateplans.model.RatePlanDTO;
 import com.neoteric.avoota_inventory.add_rateplans.repository.RatePlanRepository;
 import com.neoteric.avoota_inventory.create_room.entity.RoomEntity;
 import com.neoteric.avoota_inventory.create_room.repository.RoomRepository;
+import com.neoteric.avoota_inventory.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

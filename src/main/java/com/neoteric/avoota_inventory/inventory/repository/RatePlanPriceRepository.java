@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface RatePlanPriceRepository extends JpaRepository<RatePlanPriceEntity, Long> {
     List<RatePlanPriceEntity> findByHotelIdAndDateBetween(Long hotelId, LocalDate from, LocalDate to);
+
     RatePlanPriceEntity findByHotelIdAndRoomIdAndRatePlanIdAndDate(Long hotelId, Long roomId, Long ratePlanId, LocalDate date);
 }
